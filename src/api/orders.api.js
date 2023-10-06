@@ -15,4 +15,6 @@ router.post('/add',
 
 router.get('/:companyName', OrdersController.getByCompanyName);
 
+router.post('/price', OrdersController.getPriceOrder);  
+
 export default router;

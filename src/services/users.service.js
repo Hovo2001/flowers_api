@@ -13,8 +13,8 @@ export default class UsersService {
     return UsersModel.edit(id, payload);
   }
 
-  static async getUser(company_name) {
-    return UsersModel.findByCompanyName(company_name);
+  static async getUser(usersId) {
+    return UsersModel.findByUsersId(usersId);
   }
 
   static async getAllUsers() {

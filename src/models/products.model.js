@@ -114,12 +114,29 @@ class ProductsModel extends Model {
     return ProductsModel.query().del().where('id', '=', id).andWhere('product_status', '=', 'wreaths').returning('*');
   }
 
-  static async getAllByCompanyName(usersId) {
+  static async getAllByUsersId(usersId, categoryName) {
     const allProducts = await pg('products')
-      .select('products.id', 'info', 'company_name', 'product_status', 'description', 'sale_price', 'price', 'availability', 'categoryName', 'size', 'sale', 'picture', 'flowerName', 'users_id', 'companyName')
-      .join('users', 'products.users_id', 'users.id')
-      .where('users_id', '=', usersId)
-      .orderBy('products.users_id');
+    .select(
+          'products.id',
+          'info', 
+          'company_name', 
+          // 'product_status', 
+          'description', 
+          'sale_price', 
+          'price', 
+          'availability', 
+          'categoryName', 
+          'size', 
+          'sale', 
+          'picture', 
+          'flowerName', 
+          'products.users_id', 
+          // 'companyName'
+          )
+    .join('users', 'products.users_id', 'users.id')
+    .where('products.users_id', '=', usersId)
+    .andWhere('products.categoryName', '=', categoryName)
+    .orderBy('products.users_id');
 
     return allProducts;
   }

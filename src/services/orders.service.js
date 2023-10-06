@@ -9,4 +9,8 @@ export default class OrdersService {
   static async getByCompanyName(companyName) {
     return OrdersModel.getByCompanyName(companyName);
   }
+
+  static async getPriceOrder(price) {
+    return OrdersModel.getPriceOrder(price);
+  }
 }

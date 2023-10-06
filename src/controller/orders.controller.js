@@ -24,4 +24,15 @@ export default class OrdersController {
       next(error);
     }
   }
+
+  static async getPriceOrder(req, res, next) {
+    try {
+      const { price } = req.body;
+      
+      const user = await OrdersService.getPriceOrder(price);
+      SuccessHandlerUtil.handleList(res, next, user);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

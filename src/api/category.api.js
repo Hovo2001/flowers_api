@@ -34,7 +34,7 @@ router.put('/wreaths/:id', CategoryController.updateWreath);
 router.delete('/wreaths/:id', CategoryController.deleteWreath);
 
 // AllByCompanyName
-router.get('/all/:usersId', CategoryController. getAllByCompanyName);
+router.get('/all/:usersId/:categoryName', CategoryController.getAllByUsersId);
 
 
 export default router;

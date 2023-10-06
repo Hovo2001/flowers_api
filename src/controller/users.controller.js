@@ -19,10 +19,11 @@ export default class UsersController {
   static async getUser(req, res, next) {
     try {
       const {
-        company_name
-      } = req.query;
+        usersId
+      } = req.params;
 
-      const user = await UsersService.getUser(company_name);
+      const user = await UsersService.getUser(usersId);
+
       SuccessHandlerUtil.handleGet(res, next, user);
     } catch (error) {
       next(error);

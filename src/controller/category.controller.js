@@ -249,10 +249,10 @@ export default class CategoryController {
   }
 
   // ALL
-  static async getAllByCompanyName(req, res, next) {
+  static async getAllByUsersId(req, res, next) {
     try {
-      const { usersId } = req.params;
-      const result = await CategoryService.getAllByCompanyName(usersId);
+      const { usersId, categoryName } = req.params;
+      const result = await CategoryService.getAllByUsersId(usersId, categoryName);
       SuccessHandlerUtil.handleList(res, next, result);
     } catch (error) {
       next(error);

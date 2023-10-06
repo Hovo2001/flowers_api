@@ -9,6 +9,7 @@ function up(pg) {
   return pg.schema
     .createTable('users', (table) => {
       table.increments('id').primary();
+      table.integer('users_id')
       table.string('adminname').notNullable();
       table.string('avc').notNullable();
       table.string('bank_account').notNullable();
@@ -31,8 +32,8 @@ function up(pg) {
       .references('id')
       .inTable('users')
       .notNullable()
-      .onDelete('CASCADE'); 
-      table.string('companyName')
+      .onDelete('CASCADE');
+      table.string('companyName');
       table.string('flowerName');
       table.string('picture');
       table.integer('sale');

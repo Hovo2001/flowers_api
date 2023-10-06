@@ -30,6 +30,15 @@ class OrdersModel extends Model {
   static async getByCompanyName(companyName) {
     return OrdersModel.query().select('*').where('company_name', '=', companyName);
   }
+
+  static async getPriceOrder(price) {
+    let priceWithKm = Math.round(price/1000);
+    if(priceWithKm <= 10) {
+      priceWithKm = 1000;
+      return { price: priceWithKm }
+    }
+    return { price: priceWithKm*100 }
+  }
 }
 
 export default OrdersModel;

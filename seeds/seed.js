@@ -19,6 +19,7 @@ async function seed(pg) {
       adminname: 'superadmin',
       avc: '2132326262626',
       bank_account: 'bank_account',
+   
       password: bCrypt.hashSync(SUPERADMIN_PASSWORD, bCrypt.genSaltSync(10), null),
       email: 'superadmin@gmail.com',
       phone: '+37499151515',
@@ -47,6 +48,7 @@ async function seed(pg) {
       adminname: 'user1',
       avc: '2132326262626',
       bank_account: 'bank_account',
+      users_id:2,
       password: bCrypt.hashSync(SUPERADMIN_PASSWORD, bCrypt.genSaltSync(10), null),
       email: 'user1@gmail.com',
       phone: '+37499161515',
@@ -75,6 +77,7 @@ async function seed(pg) {
       adminname: 'user2',
       avc: '2132326262626',
       bank_account: 'bank_account',
+      users_id:3,
       password: bCrypt.hashSync(SUPERADMIN_PASSWORD, bCrypt.genSaltSync(10), null),
       email: 'user2@gmail.com',
       phone: '+37499161515',

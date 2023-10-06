@@ -52,8 +52,8 @@ export default class CategoryService {
     return ProductsModel.deleteWreath(id, payload);
   }
 
-  static getAllByCompanyName(usersId) {
-    return ProductsModel.getAllByCompanyName(usersId);
+  static getAllByUsersId(usersId, categoryName) {
+    return ProductsModel.getAllByUsersId(usersId, categoryName);
   }
 
   static getBouquetById(id) {

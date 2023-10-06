@@ -15,7 +15,7 @@ router.post('/add',
 
 router.delete('/:id', UsersController.delete);
 
-router.get('/user',
+router.get('/:usersId',
   UsersController.getUser);
 
 router.get('/all',

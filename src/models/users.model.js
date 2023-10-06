@@ -60,8 +60,11 @@ class UsersModel extends Model {
       .returning('*');
   }
 
-  static findByCompanyName(company_name) {
-    return UsersModel.query().findOne({ company_name });
+  static async findByUsersId(usersId) {
+    const userArray = await UsersModel.query().select('*').where('users_id', '=', usersId);
+    const user = userArray[0];
+
+    return user;
   }
 
   static findByAdminName(adminname) {
